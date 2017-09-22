@@ -50,5 +50,8 @@
     <ClCompile Include="ut_vector_set_relational_operators.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ut_vector_set_introduction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
