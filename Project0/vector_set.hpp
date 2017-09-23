@@ -7,6 +7,7 @@
 	vector_set template class.
 */
 
+#include <algorithm>
 #include <cstddef>
 #include <functional>
 #include <initializer_list>
@@ -64,8 +65,8 @@ public:
 	reverse_iterator rend() noexcept { return reverse_iterator(beg_); }
 	const_reverse_iterator crbegin() const noexcept { return const_reverse_iterator(end_); }
 	const_reverse_iterator crend() const noexcept { return const_reverse_iterator(beg_); }
-	const_reverse_iterator rbegin() const noexcept { return cbegin(); }
-	const_reverse_iterator rend() const noexcept { return cend(); }
+	const_reverse_iterator rbegin() const noexcept { return const_reverse_iterator(end_); }
+	const_reverse_iterator rend() const noexcept { return const_reverse_iterator(beg_); }
 
 	// capacity
 	bool empty() const noexcept { return size() == 0; }
@@ -134,7 +135,7 @@ bool operator < (vector_set<Key> const& lhs, vector_set<Key> const& rhs) {
 	}
 	if (right==rhs.end())
 		return false;
-	
+
 	return true;
 }
 template <class Key> inline bool operator > (vector_set<Key> const& lhs, vector_set<Key> const& rhs) { return rhs < lhs; }
@@ -185,13 +186,9 @@ vector_set<Key>& vector_set<Key>::operator = (vector_set<Key> && other) noexcept
 // vector_set::operator = (initializer)
 template <class Key>
 vector_set<Key>& vector_set<Key>::operator = (std::initializer_list<value_type> iList) {
-	auto newBuffer = new value_type[iList.size()];
-	auto to = newBuffer;
-	for (auto from : iList)
-		*to++ = from;
-	delete[] beg_;
-	beg_ = newBuffer;
-	cap_ = end_ = to;
+
+	vector_set<Key> newSet(iList);
+	newSet.swap(*this);
 
 	return *this;
 }
@@ -255,13 +252,13 @@ typename vector_set<Key>::iterator vector_set<Key>::erase(const_iterator pos) {
 // vector_set::erase a range of elements
 template <class Key>
 typename vector_set<Key>::iterator vector_set<Key>::erase(const_iterator first, const_iterator last) {
-	auto to = first;
-	auto from = last;
+	auto to = const_cast<pointer>(first);
+	auto from = const_cast<pointer>(last);
 	while (from != end_) {
 		*to = std::move(*from);
 		++to, ++from;
 	}
-	end_ = to_;
+	end_ = to;
 
 	return first;
 }
