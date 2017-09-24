@@ -15,4 +15,7 @@ BOOST_AUTO_TEST_CASE(capacity_tests) {
 	// 2. Size
 	BOOST_CHECK_EQUAL(vs1.size(), 0);
 	BOOST_CHECK_EQUAL(vs2.size(), 3);
+
+	// 3. Capacity
+	BOOST_CHECK_EQUAL(vs1.capacity(), 0);	// an un-initialized STL container should have cap = 0	
 }
