@@ -147,9 +147,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="vector_set.hpp" />
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="ut_vector_set_capacity.cpp" />
     <ClCompile Include="ut_vector_set_constructors.cpp" />
     <ClCompile Include="ut_vector_set_introduction.cpp" />
@@ -161,6 +158,9 @@
     <ClCompile Include="ut_vector_set_mod_swap.cpp" />
     <ClCompile Include="ut_vector_set_relational_operators.cpp" />
     <ClCompile Include="ut_vector_set_types.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vector_set.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
