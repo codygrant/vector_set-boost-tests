@@ -7,8 +7,15 @@ using namespace std;
 BOOST_AUTO_TEST_CASE(iterator_tests) {
 
 	// 1. begin() test
+	vector_set<int> vs1{ 100,200,500,300 };
+	BOOST_CHECK_EQUAL(*vs1.begin(), 100);		// dereference and check first element
 
 	// 2. end() test
+	vector_set<int>::iterator it1 = vs1.end();
+	--it1;										// decrement to get iterator at last element position
+	BOOST_CHECK_EQUAL(*it1, 500);
+
+	// 3. for loop
 }
 
 BOOST_AUTO_TEST_CASE(const_iterator_tests) {
