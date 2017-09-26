@@ -86,7 +86,7 @@ BOOST_AUTO_TEST_CASE(iterator_cbegin_cend_loop_tests) {
 	--c_end;
 	while (c_end >= c_beg) {
 		BOOST_CHECK_EQUAL(*c_end, value);
-		--c_beg, value -= 1;
+		--c_beg, --value;
 	}
 }
 
@@ -129,7 +129,7 @@ BOOST_AUTO_TEST_CASE(iterator_const_begin_const_end_loop_tests) {
 	--const_end;
 	while (const_end >= const_beg) {
 		BOOST_CHECK_EQUAL(*const_end, value);
-		--const_beg, value -= 1;
+		--const_beg, --value;
 	}
 }
 
