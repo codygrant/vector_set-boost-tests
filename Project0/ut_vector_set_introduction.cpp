@@ -1,3 +1,10 @@
+/*
+Name:			Cody Grant
+Date:			Sept 29, 2017
+Purpose:		A project to perform Unit Tests on all aspects of the
+				vector_set custom class using the Boost library.
+*/
+
 #define BOOST_TEST_MODULE Unit Tests
 #include <boost/test/unit_test.hpp>
 

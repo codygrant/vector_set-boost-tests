@@ -1,3 +1,9 @@
+/*
+Name:			Cody Grant
+Date:			Sept 29, 2017
+Purpose:		Perform Boost Tests on all constructor types of the vector_set class
+*/
+
 #include <boost/test/unit_test.hpp>
 #include <boost/mpl/list.hpp>
 
