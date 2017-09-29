@@ -17,7 +17,10 @@ BOOST_AUTO_TEST_CASE(lookup_find_tests) {
 	auto letter = vs1.find('c');
 	BOOST_CHECK_EQUAL(*letter, 'c');					// dereference to get value
 
-
+	// perform find() when value not in container
+	auto letter1 = vs1.find(6);
+	// verify iterator points to end() since value not found
+	BOOST_CHECK_MESSAGE(letter1 == vs1.end(), "Iterator should be pointing to end()!");
 }
 
 // 2. lower_bound()
