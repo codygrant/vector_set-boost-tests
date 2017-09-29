@@ -11,13 +11,15 @@ Purpose:		Perform Boost Tests on all constructor types of the vector_set class
 #include <iostream>
 using namespace std;
 
-using constructor_types = boost::mpl::list<int, long, unsigned char, double, std::string>;
+using constructor_types = boost::mpl::list<int, long, char, double, std::string>;
 
+// 1. Destructor
 BOOST_AUTO_TEST_CASE_TEMPLATE(destructor, T, constructor_types) {
 
 	vector_set<T> vs;
 }
 
+// 2. Default constructor
 BOOST_AUTO_TEST_CASE_TEMPLATE(default_constructor, T, constructor_types) {
 
 	vector_set<T> vs;
@@ -25,6 +27,7 @@ BOOST_AUTO_TEST_CASE_TEMPLATE(default_constructor, T, constructor_types) {
 	BOOST_CHECK(vs.empty());
 }
 
+// 3. Copy constructor
 BOOST_AUTO_TEST_CASE(copy_constructor) {
 
 	// fill one
@@ -36,6 +39,7 @@ BOOST_AUTO_TEST_CASE(copy_constructor) {
 	BOOST_CHECK(!vs2.empty());
 }
 
+// 4. Move constructor
 BOOST_AUTO_TEST_CASE(move_constructor) {
 
 	// fill one
@@ -46,4 +50,12 @@ BOOST_AUTO_TEST_CASE(move_constructor) {
 	BOOST_CHECK(vs1.empty());
 	BOOST_CHECK(!vs2.empty());
 	BOOST_CHECK_EQUAL(vs2.size(), original_size);
+}
+
+// 5. Initializer list constructor
+
+// 6. Auto-fill constructor
+BOOST_AUTO_TEST_CASE(autofill_constructor) {
+
+	
 }
