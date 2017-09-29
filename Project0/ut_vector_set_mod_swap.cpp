@@ -39,14 +39,14 @@ BOOST_AUTO_TEST_CASE(swap_iterator_tests) {
 	vector_set<int> vs1{ 1,2,3,4,5,6 };
 	vector_set<int> vs2{ 7,8,9,10 };
 	// grab the value of capacity iterators
-	int vs1_original_cap = vs1.capacity();
-	int vs2_original_cap = vs2.capacity();
+	size_t vs1_original_cap = vs1.capacity();
+	size_t vs2_original_cap = vs2.capacity();
 
 	vs1.swap(vs2);
-	BOOST_CHECK(*vs1.begin() == 7);
-	BOOST_CHECK(*vs2.begin() == 1);
-	BOOST_CHECK(*(vs1.end() - 1) == 10);
-	BOOST_CHECK(*(vs2.end() - 1) == 6);
-	BOOST_CHECK_EQUAL(vs1.capacity(), vs2_original_cap);
+	BOOST_CHECK(*vs1.begin() == 7);							// check first element vs1
+	BOOST_CHECK(*vs2.begin() == 1);							// check first element vs2
+	BOOST_CHECK(*(vs1.end() - 1) == 10);					// check last element vs1
+	BOOST_CHECK(*(vs2.end() - 1) == 6);						// check last element vs2
+	BOOST_CHECK_EQUAL(vs1.capacity(), vs2_original_cap);	// compare capacities
 	BOOST_CHECK_EQUAL(vs2.capacity(), vs1_original_cap);
 }

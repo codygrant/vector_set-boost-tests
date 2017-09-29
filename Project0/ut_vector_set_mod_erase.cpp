@@ -22,8 +22,8 @@ BOOST_AUTO_TEST_CASE(erase_single_test) {
 	BOOST_CHECK(*num == 9);					// num pointer should also be pointing to the new first element
 	BOOST_CHECK(vs1.size() == 5);			// check to make sure size updated correctly
 	// check last element
-	auto end = vs1.end() - 1;
-	BOOST_CHECK_EQUAL(*end, 563);
+	auto last = vs1.end() - 1;
+	BOOST_CHECK_EQUAL(*last, 563);
 }
 
 // 2. Erase a range of elements
@@ -40,6 +40,6 @@ BOOST_AUTO_TEST_CASE(erase_range_tests) {
 	BOOST_CHECK(*start_num == 43);			// beginning element should be 43 now
 	BOOST_CHECK(vs1.size() == 3);			// check to make sure size updated correctly
 	// check last element
-	auto end = vs1.end() - 1;
-	BOOST_CHECK_EQUAL(*end, 563);
+	auto last = vs1.end() - 1;
+	BOOST_CHECK_EQUAL(*last, 563);
 }
