@@ -32,6 +32,10 @@ BOOST_AUTO_TEST_CASE(lookup_lower_bound_tests) {
 	auto num = vs1.lower_bound(300);
 	BOOST_CHECK_EQUAL(*num, 300);
 	// previous element should be '200'
-	--num;
-	BOOST_CHECK_MESSAGE(*num == 200, "lower_bound() isn't working correctly! Should be pointing to 200 not " << *num);
+	BOOST_CHECK_MESSAGE(*(--num) == 200, "lower_bound() isn't working correctly! Should be pointing to 200 not " << *num);
+
+	// perform lower_bound() when value not in container
+	auto num1 = vs1.lower_bound(3000);
+	// verify iterator points to end() since value not found
+	BOOST_CHECK_MESSAGE(num1 == vs1.end(), "Iterator should be pointing to end()!");
 }
