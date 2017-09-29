@@ -30,7 +30,7 @@ BOOST_AUTO_TEST_CASE_TEMPLATE(default_constructor, T, constructor_types) {
 BOOST_AUTO_TEST_CASE(copy_constructor) {
 
 	// fill one
-	vector_set<size_t> vs1 = { 1,2,3,4,5 };
+	vector_set<size_t>vs1 = { 1,2,3,4,5 };
 	// copy filled one into new one
 	vector_set<size_t> vs2(vs1);
 	BOOST_CHECK_EQUAL(vs1.size(), vs2.size());

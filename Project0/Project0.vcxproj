@@ -155,6 +155,7 @@
     <ClCompile Include="ut_vector_set_member_assignment_operators.cpp" />
     <ClCompile Include="ut_vector_set_mod_clear.cpp" />
     <ClCompile Include="ut_vector_set_mod_erase.cpp" />
+    <ClCompile Include="ut_vector_set_mod_insert.cpp" />
     <ClCompile Include="ut_vector_set_mod_swap.cpp" />
     <ClCompile Include="ut_vector_set_relational_operators.cpp" />
     <ClCompile Include="ut_vector_set_types.cpp" />
