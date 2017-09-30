@@ -50,8 +50,8 @@ BOOST_AUTO_TEST_CASE(capacity_tests) {
 BOOST_AUTO_TEST_CASE(capacity_max_size_tests) {
 
 	//vector_set<char> vs2;
-	//cout << (double)numeric_limits<char>::max() << endl;
-	//cout << sizeof(char) << endl;
+	//cout << (double)numeric_limits<int>::max() << endl;
+	//cout << sizeof(int) << endl;
 	//cout << vs2.max_size() << endl;
 	//vector_set<short> vs3;
 	//cout << vs3.max_size() << endl;
