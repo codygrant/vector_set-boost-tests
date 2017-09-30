@@ -149,6 +149,7 @@
   <ItemGroup>
     <ClCompile Include="ut_vector_set_capacity.cpp" />
     <ClCompile Include="ut_vector_set_constructors.cpp" />
+    <ClCompile Include="ut_vector_set_helper.cpp" />
     <ClCompile Include="ut_vector_set_introduction.cpp" />
     <ClCompile Include="ut_vector_set_iterators.cpp" />
     <ClCompile Include="ut_vector_set_lookup.cpp" />

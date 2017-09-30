@@ -51,6 +51,9 @@
     <ClCompile Include="ut_vector_set_mod_insert.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ut_vector_set_helper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="vector_set.hpp">
