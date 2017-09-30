@@ -26,16 +26,14 @@ BOOST_AUTO_TEST_CASE(lookup_find_tests) {
 // 2. lower_bound()
 BOOST_AUTO_TEST_CASE(lookup_lower_bound_tests) {
 
-	// lower_bound returns an iterator pointing to first element in the
-	// specified range
-	vector_set<int> vs1{ 100,200,300,300,300,600,800,800 };
+	// lower_bound returns an iterator pointing to equivalent of value, or element after value
+	vector_set<int> vs1{ 100,200,300,600,800 };
 	auto num = vs1.lower_bound(300);
-	BOOST_CHECK_EQUAL(*num, 300);
-	// previous element should be '200'
-	BOOST_CHECK_MESSAGE(*(--num) == 200, "lower_bound() isn't working correctly! Should be pointing to 200 not " << *num);
+	// lower_bound() should point it to 300
+	BOOST_CHECK_MESSAGE(*num == 300, "lower_bound() isn't working correctly! Should be pointing to 300 not " << *num);
 
 	// perform lower_bound() when value not in container
-	auto num1 = vs1.lower_bound(3000);
-	// verify iterator points to end() since value not found
-	BOOST_CHECK_MESSAGE(num1 == vs1.end(), "Iterator should be pointing to end()!");
+	auto num1 = vs1.lower_bound(500);
+	// lower_bound() should point it to 600
+	BOOST_CHECK_MESSAGE(*num1 == 600, "Iterator should be pointing to 600 NOT " << *num1);
 }

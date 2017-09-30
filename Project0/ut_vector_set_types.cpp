@@ -13,7 +13,7 @@ Purpose:		Perform Boost Tests on type definitions of
 using namespace std;
 
 #include <typeinfo>
-using test_types = boost::mpl::list<int, long, double, char, std::string>;
+using test_types = boost::mpl::list<short, int, long, long long, double, char, std::string>;
 BOOST_AUTO_TEST_CASE_TEMPLATE(type_test, T, test_types) {
 
 	BOOST_CHECK(typeid(vector_set<T>::key_type) == typeid(T));
