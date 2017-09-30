@@ -1,7 +1,7 @@
 /*
 Name:			Cody Grant
 Date:			Sept 29, 2017
-Purpose:		Perform Boost Tests on helper functions of the vector_set class
+Purpose:		Perform Boost Tests on helper/non-member functions of the vector_set class
 */
 
 #include <boost/test/unit_test.hpp>
