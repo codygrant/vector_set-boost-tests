@@ -5,6 +5,7 @@ Purpose:		Perform Boost Tests on all capacity functions of the vector_set class
 */
 
 #include <boost/test/unit_test.hpp>
+#include <boost/mpl/list.hpp>
 
 #include "vector_set.hpp"
 #include <iostream>
@@ -47,14 +48,14 @@ BOOST_AUTO_TEST_CASE(capacity_tests) {
 }
 
 // 4. Max_size()
-BOOST_AUTO_TEST_CASE(capacity_max_size_tests) {
+using all_types = boost::mpl::list<short, int, long, long long, char, double, std::string>;
+BOOST_AUTO_TEST_CASE_TEMPLATE(capacity_max_size_tests, T, all_types) {
 
-	//vector_set<char> vs2;
-	//cout << (double)numeric_limits<int>::max() << endl;
-	//cout << sizeof(int) << endl;
-	//cout << vs2.max_size() << endl;
-	//vector_set<short> vs3;
-	//cout << vs3.max_size() << endl;
-	//vector_set<long long> vs4;
-	//cout << vs4.max_size() << endl;
+	vector_set<T> vs1;
+	size_t max_size = vs1.max_size();
+
+	// generate max_size manually to check against function
+	size_t man_max = numeric_limits<size_t>::max() / sizeof(T);
+
+	BOOST_CHECK_EQUAL(max_size, man_max);
 }
